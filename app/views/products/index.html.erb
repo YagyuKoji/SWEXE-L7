@@ -1,0 +1,12 @@
+<% @products.each do |p| %>
+<p>
+  商品名 : <%= p.name %><br>
+  価格 : <%= p.price %>
+  <%= link_to '削除', product_path(p.id), method: :delete %><br>
+  -------------------------------------------
+</p>
+<% end %>
+
+<%= link_to '商品を登録する', new_product_path %>
+
+<%= link_to 'to main', top_main_path %>

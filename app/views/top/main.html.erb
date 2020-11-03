@@ -1,0 +1,19 @@
+<h1>Top#main</h1><%= current_cart %>
+<% @products.each do |p| %>
+<p>
+    商品名 : <%= p.name %><br>
+    価格 : <%= p.price %><br>
+  <% @cart_item = current_cart.cart_items.build %>
+  <%= form_for @cart_item, url: cart_items_path do |f| %>
+   <%= f.label :qty, "数量"%>
+   <%= f.number_field :qty %>
+   <%= f.hidden_field :product_id, :value => p.id %>
+   <%= f.submit '確定' %>
+  <% end %>
+</p>
+  -------------------------------------------
+
+<% end %>
+
+<%= link_to '商品一覧', products_path %>
+<%= link_to 'カート', cart_path(current_cart) %>

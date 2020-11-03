@@ -1,0 +1,14 @@
+<h1>Carts#show</h1>
+
+<% @cart_items.each do |c| %>
+<p>
+  名前 : <%= c.product.name %><br>
+  価格 : <%= c.product.price %>円<br>
+  個数 : <%= c.qty %>個<br>
+  合計金額 : <%= c.product.price * c.qty %>円<br>
+  <%= link_to '削除', cart_item_path(product_id: c.product.id), method: :delete %><br>
+  -------------------------------------------
+</p>
+<% end %>
+
+<%= link_to 'to main', top_main_path %>
